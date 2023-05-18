@@ -1,2 +1,2 @@
 p{color:blue}
-.test{display:block;font-size:20px;color:green}
+.test{display:block;font-size:20px;color:green}.box_test{display:-webkit-box;display:-ms-flexbox;display:flex}

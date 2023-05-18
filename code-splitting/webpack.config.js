@@ -4,11 +4,17 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: 'none',
-  entry: './index.js',
+  entry: './src/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
+  plugins: [
+    new MiniCssExtractPlugin(),
+    new HtmlPlugin({
+      template: './src/index.html'
+    })
+  ],
   module: {
     rules: [
       {
@@ -16,15 +22,10 @@ module.exports = {
         use: [
           { loader: MiniCssExtractPlugin.loader },
           "css-loader",
+          "postcss-loader",
           "sass-loader"
         ]
       }
     ]
   },
-  plugins: [
-    new MiniCssExtractPlugin(),
-    new HtmlPlugin({
-      template: './index.html'
-    })
-  ],
 }
